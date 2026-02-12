@@ -1,0 +1,22 @@
+{
+  "backend/main.mo": "Motoko canister managing newsletters, translations, and PDF blobs with CRUD-style methods and language utilities.",
+  "feature_evidence.json": "Feature evidence report linking UI translation and language-picker requirements to specific frontend files.",
+  "frontend-file-summaries.txt": "List of summarized descriptions for key frontend files including components, context, hooks, and translations.",
+  "frontend/index.css": "Tailwind-based global CSS defining OKLCH color variables for light and dark modes.",
+  "frontend/index.html": "Basic HTML entry point loading the React application root and main TypeScript module.",
+  "frontend/src/App.tsx": "Sets up React Query and language context, rendering Header, NewsletterGrid, and Footer.",
+  "frontend/src/components/Footer.tsx": "Footer displaying BrAIn Project copyright without AI attribution.",
+  "frontend/src/components/Header.tsx": "Header with logo, translated title, and a language dropdown limited to English and Turkish.",
+  "frontend/src/components/NewsletterCard.tsx": "Newsletter card showing translated info and selecting English/Turkish PDFs for Newsletter 1.",
+  "frontend/src/components/NewsletterGrid.tsx": "Grid rendering placeholder newsletters with translations and skeletons during loading.",
+  "frontend/src/components/PDFViewer.tsx": "React PDF viewer with zoom, fullscreen, pagination, and PDF.js-based page count loading.",
+  "frontend/src/contexts/LanguageContext.tsx": "Provides a React context for managing and accessing the current UI language.",
+  "frontend/src/hooks/useActor.ts": "Creates and manages a backend actor tied to the user's identity, refetching dependent queries on change.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Implements Internet Identity authentication logic, storing identities and exposing login state via context.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks to fetch newsletters and translations using the backend actor.",
+  "frontend/src/i18n/translations.ts": "Defines static translation strings for multiple languages keyed by TranslationKey values.",
+  "frontend/src/index.css": "Tailwind base styles and custom CSS variables for theming in light and dark modes.",
+  "frontend/src/main.tsx": "App entry point setting up React Query and Internet Identity providers.",
+  "frontend/tailwind.config.js": "Tailwind configuration enabling theming, plugins, and extended color and animation settings.",
+  "project_state.json": "Defines the project’s current state describing features and requests for adding Turkish language support, a language dropdown, language-specific PDFs, and removing AI credits."
+}

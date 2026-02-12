@@ -1,2 +1,3 @@
-# add-turkish-site-language-with-dropdown-and-turkish-pdf-for-newsletters
-Exported from Caffeine project: Add Turkish site language with dropdown and Turkish PDF for newsletters
+## 
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`

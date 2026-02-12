@@ -1,0 +1,12 @@
+{
+  "frontend/src/App.tsx": "Main application component that sets up QueryClient with stable configuration options, LanguageProvider, and renders Header, NewsletterGrid, and Footer with fade-in animation for smooth initial load.",
+  "frontend/src/contexts/LanguageContext.tsx": "React context provider for managing the current language state across the application, supporting English, Danish, Bulgarian, Spanish, and Turkish.",
+  "frontend/src/hooks/useQueries.ts": "Custom React Query hooks with stable configuration (staleTime, refetchOnMount: false) for fetching newsletters and translations from backend, with proper error handling to prevent component unmounting.",
+  "frontend/src/components/Header.tsx": "Header component displaying the BrAIn logo, translated title, and language dropdown restricted to English and Turkish options with the current language always visible.",
+  "frontend/src/components/NewsletterGrid.tsx": "Grid layout component displaying newsletters with translated titles and descriptions based on the current language selection, using undefined instead of null for pdf property to match Newsletter type.",
+  "frontend/src/components/NewsletterCard.tsx": "Card component for individual newsletters that switches between English and Turkish PDF files for Newsletter 1 based on language selection, with all labels translated.",
+  "frontend/src/components/PDFViewer.tsx": "Full-featured PDF viewer dialog with translated UI labels including page indicator, download button, and all controls supporting both English and Turkish.",
+  "frontend/src/components/Footer.tsx": "Simple footer component displaying copyright information for the BrAIn Project without any AI attribution.",
+  "frontend/src/index.css": "Global styles with OKLCH color system customized for BrAIn branding using blue (250° hue) and orange (35° hue) color palette for both light and dark modes.",
+  "frontend/src/i18n/translations.ts": "Translation system providing English and Turkish translations for all UI strings with interpolation support for dynamic values like page numbers."
+}

@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Website updates to support a Turkish version: add Turkish translations, provide a language dropdown under English, and show a Turkish PDF when Turkish is selected.",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-restrict-the-language-picker-ui-to-a-dropdown-that-shows-english-as-the-default-primary-selection-and-offers-exactly-two-options-english-and-turkish",
+      "title": "Restrict the language picker UI to a dropdown that shows English as the default/primary selection and offers exactly two options: English and Turkish.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-turkish-translations-for-all-user-facing-text-currently-hardcoded-in-the-ui-e-g-header-title-newsletter-titles-descriptions-status-labels-buttons-pdf-viewer-controls-so-that-switching-the-language-to-turkish-renders-turkish-text-throughout-the-site",
+      "title": "Implement Turkish translations for all user-facing text currently hardcoded in the UI (e.g., header title, newsletter titles/descriptions/status labels/buttons, PDF viewer controls) so that switching the language to Turkish renders Turkish text throughout the site.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-support-for-language-specific-pdf-selection-so-that-when-turkish-is-selected-the-newsletter-pdf-opened-in-the-viewer-uses-the-attached-turkish-pdf-when-english-is-selected-it-uses-the-existing-english-pdf",
+      "title": "Add support for language-specific PDF selection so that when Turkish is selected, the newsletter PDF opened in the viewer uses the attached Turkish PDF; when English is selected, it uses the existing English PDF.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-application-ui-and-generated-outputs-do-not-add-any-assistant-ai-credits-or-built-by-attribution-text-anywhere-in-the-site-including-footer-and-any-modal-about-areas",
+      "title": "Ensure the application UI and generated outputs do not add any assistant/AI credits or “built by” attribution text anywhere in the site (including footer and any modal/about areas).",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Add Turkish translations for all site text and enable a Turkish version via the language system",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Add a language button dropdown menu under English with English and Turkish options",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Swap the English PDF to the attached Turkish PDF when the user selects Turkish",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Do not display assistant/AI credits in the site or related outputs",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "projectName": "Add Turkish site language with dropdown and Turkish PDF for newsletters",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

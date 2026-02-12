@@ -1,0 +1,91 @@
+{
+  "kind": "build_request",
+  "title": "Add Turkish site language with dropdown and Turkish PDF for newsletters",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Restrict the language picker UI to a dropdown that shows English as the default/primary selection and offers exactly two options: English and Turkish.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "recent-1"
+        ],
+        "quotes": [
+          "create a Turkish version of the website, add a language button dropdown menu under English"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The header language button displays the currently selected language name.",
+        "The dropdown contains exactly: English, Türkçe.",
+        "Selecting Turkish updates the app language state to Turkish; selecting English switches back to English."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement Turkish translations for all user-facing text currently hardcoded in the UI (e.g., header title, newsletter titles/descriptions/status labels/buttons, PDF viewer controls) so that switching the language to Turkish renders Turkish text throughout the site.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "recent-2"
+        ],
+        "quotes": [
+          "Add the Turkish translations for all text in the Turkish version of the site."
+        ]
+      },
+      "acceptanceCriteria": [
+        "When Turkish is selected, all visible UI strings are Turkish (no leftover English UI labels such as “View Newsletter”, “Published”, “Upcoming”, “Coming Soon”, “Download”, “Page X of Y”, header title, and placeholder newsletter text).",
+        "When English is selected, the UI remains in English.",
+        "Translations are sourced consistently (single system of record) and do not require editing any files under frontend/src/components/ui or other immutable paths."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Add support for language-specific PDF selection so that when Turkish is selected, the newsletter PDF opened in the viewer uses the attached Turkish PDF; when English is selected, it uses the existing English PDF.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "recent-3"
+        ],
+        "quotes": [
+          "Swap the English PDF for the attached Turkish PDF when the user selects Turkish."
+        ]
+      },
+      "acceptanceCriteria": [
+        "With English selected, opening Newsletter 1 loads the current English PDF asset.",
+        "With Turkish selected, opening Newsletter 1 loads the Turkish PDF provided by the user (the attached file) instead of the English PDF.",
+        "Switching language changes which PDF is opened without requiring a page refresh."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Ensure the application UI and generated outputs do not add any assistant/AI credits or “built by” attribution text anywhere in the site (including footer and any modal/about areas).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "recent-4"
+        ],
+        "quotes": [
+          "please do not take credits"
+        ]
+      },
+      "acceptanceCriteria": [
+        "No UI element contains assistant/AI credit text (e.g., “Built by…”, “Powered by…”, assistant name/branding).",
+        "Existing non-AI copyright text remains unchanged unless required for translation."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not edit files in frontend immutablePaths (including frontend/src/components/ui, frontend/src/hooks/useInternetIdentity.ts/tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx).",
+    "Use English for any user-facing text in the build request."
+  ],
+  "nonGoals": [
+    "Add or enable additional languages beyond English and Turkish.",
+    "Add third-party translation services or external APIs.",
+    "Redesign the PDF viewer behavior beyond selecting the correct PDF per language."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Turkish language toggle and Turkish Newsletter 1 PDF",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Limit the header language picker to a two-option dropdown (English default, English/Türkçe only) and show the active language label.",
+      "acceptanceCriteria": [
+        "The header language button displays the currently selected language name.",
+        "The dropdown contains exactly: English, Türkçe.",
+        "Selecting Turkish updates the app language state to Turkish; selecting English switches back to English."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Header.tsx",
+          "operation": "modify",
+          "description": "Restrict the dropdown options to exactly English and Turkish (Türkçe), ensure English remains the default via LanguageContext, and ensure the trigger always displays the current language label (remove responsive hiding that can prevent the label from showing). Uses shadcn-ui DropdownMenu/Button already present; verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Add a single-source translation system for English/Turkish and replace hardcoded UI strings so language switching updates all visible labels.",
+      "acceptanceCriteria": [
+        "When Turkish is selected, all visible UI strings are Turkish (no leftover English UI labels such as “View Newsletter”, “Published”, “Upcoming”, “Coming Soon”, “Download”, “Page X of Y”, header title, and placeholder newsletter text).",
+        "When English is selected, the UI remains in English.",
+        "Translations are sourced consistently (single system of record) and do not require editing any files under frontend/src/components/ui or other immutable paths."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/i18n/translations.ts",
+          "operation": "create",
+          "description": "Create a single system-of-record translation dictionary (English + Turkish) and a small helper (e.g., translate(key, language, params)) to support consistent lookup and simple interpolation (e.g., 'Page {current} of {total}')."
+        },
+        {
+          "path": "frontend/src/components/Header.tsx",
+          "operation": "modify",
+          "description": "Replace hardcoded header title and any other user-facing strings (e.g., aria-label if intended as user-facing) with lookups from the new translation system; keep the language names as English/Türkçe. Uses shadcn-ui DropdownMenu/Button already present; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/NewsletterGrid.tsx",
+          "operation": "modify",
+          "description": "Replace placeholder newsletter titles/descriptions/status strings with translation keys so that switching language renders Turkish placeholder content (and English remains unchanged)."
+        },
+        {
+          "path": "frontend/src/components/NewsletterCard.tsx",
+          "operation": "modify",
+          "description": "Replace hardcoded labels and status text (e.g., Published/Upcoming, View Newsletter, Coming Soon) with translated strings sourced from the new translation system. Uses shadcn-ui Card/Badge/Button already present; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/PDFViewer.tsx",
+          "operation": "modify",
+          "description": "Replace hardcoded viewer labels (e.g., 'Page {current} of {total}', 'Download') with translated strings from the new translation system, including interpolation for the page indicator. Uses shadcn-ui Dialog/Button/Separator already present; verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Select the Newsletter 1 PDF asset based on current language (English PDF for English, provided Turkish PDF for Turkish) without refresh.",
+      "acceptanceCriteria": [
+        "With English selected, opening Newsletter 1 loads the current English PDF asset.",
+        "With Turkish selected, opening Newsletter 1 loads the Turkish PDF provided by the user (the attached file) instead of the English PDF.",
+        "Switching language changes which PDF is opened without requiring a page refresh."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/BrAIn Newsletter 1 Turkish.pdf",
+          "operation": "create",
+          "description": "Add the provided Turkish PDF as a static asset to be used when Turkish is selected."
+        },
+        {
+          "path": "frontend/src/components/NewsletterCard.tsx",
+          "operation": "modify",
+          "description": "Compute pdfUrl for Newsletter 1 based on the current language from LanguageContext: use the existing English PDF asset for English and frontend/public/assets/BrAIn Newsletter 1 Turkish.pdf for Turkish. Ensure switching language updates which PDF will open (and, if the viewer is open, ensure the viewer reloads appropriately by reacting to pdfUrl changes). Uses shadcn-ui components already present; verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Ensure no assistant/AI credits or “built by” attribution appear anywhere in the UI.",
+      "acceptanceCriteria": [
+        "No UI element contains assistant/AI credit text (e.g., “Built by…”, “Powered by…”, assistant name/branding).",
+        "Existing non-AI copyright text remains unchanged unless required for translation."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Footer.tsx",
+          "operation": "modify",
+          "description": "Audit and ensure the footer contains no assistant/AI attribution text; keep existing non-AI copyright text unchanged. Remove any unused imports introduced by prior iterations while preserving UI behavior."
+        }
+      ]
+    }
+  ]
+}

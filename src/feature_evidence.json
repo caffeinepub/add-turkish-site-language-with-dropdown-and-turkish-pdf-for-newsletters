@@ -1,0 +1,85 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-restrict-the-language-picker-ui-to-a-dropdown-that-shows-english-as-the-default-primary-selection-and-offers-exactly-two-options-english-and-turkish",
+      "featureTitle": "Restrict the language picker UI to a dropdown that shows English as the default/primary selection and offers exactly two options: English and Turkish.",
+      "files": [
+        "frontend/src/components/Header.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-turkish-translations-for-all-user-facing-text-currently-hardcoded-in-the-ui-e-g-header-title-newsletter-titles-descriptions-status-labels-buttons-pdf-viewer-controls-so-that-switching-the-language-to-turkish-renders-turkish-text-throughout-the-site",
+      "featureTitle": "Implement Turkish translations for all user-facing text currently hardcoded in the UI (e.g., header title, newsletter titles/descriptions/status labels/buttons, PDF viewer controls) so that switching the language to Turkish renders Turkish text throughout the site.",
+      "files": [
+        "frontend/src/components/Header.tsx",
+        "frontend/src/components/NewsletterCard.tsx",
+        "frontend/src/components/NewsletterGrid.tsx",
+        "frontend/src/components/PDFViewer.tsx",
+        "frontend/src/i18n/translations.ts"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-support-for-language-specific-pdf-selection-so-that-when-turkish-is-selected-the-newsletter-pdf-opened-in-the-viewer-uses-the-attached-turkish-pdf-when-english-is-selected-it-uses-the-existing-english-pdf",
+      "featureTitle": "Add support for language-specific PDF selection so that when Turkish is selected, the newsletter PDF opened in the viewer uses the attached Turkish PDF; when English is selected, it uses the existing English PDF.",
+      "files": [
+        "frontend/src/components/NewsletterCard.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-ensure-the-application-ui-and-generated-outputs-do-not-add-any-assistant-ai-credits-or-built-by-attribution-text-anywhere-in-the-site-including-footer-and-any-modal-about-areas",
+      "featureTitle": "Ensure the application UI and generated outputs do not add any assistant/AI credits or “built by” attribution text anywhere in the site (including footer and any modal/about areas).",
+      "files": [
+        "frontend/src/components/Footer.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    }
+  ]
+}
